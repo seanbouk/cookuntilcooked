@@ -1,8 +1,43 @@
 <html>
 <head>
 	<title>Cook Until Cooked</title>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/McPants/jquery.shapeshift/2.0.0/core/jquery.shapeshift.min.js"></script>
+
+	<style type="text/css">
+		.container 
+		{
+		  position: relative;
+		  width: 100%;
+		}
+
+		.container div 
+		{
+		  height: 150px;
+		  position: absolute;
+		  border: 1px solid black;
+		  width: 80px;
+		}
+
+		.container div[data-ss-colspan="2"] { width: 170px; }
+		.container div[data-ss-colspan="3"] { width: 260px; }
+		.container div[data-ss-colspan="4"] { width: 350px; }
+</style>
 </head>
 <body>
-	Cook Until Cooked
+	<div class="container">
+		
+		<div>Spans 1 Column</div>
+  <div data-ss-colspan="2">Spans 2 Columns</div>
+  <div data-ss-colspan="3">Spans 3 Columns</div>
+  <div data-ss-colspan="4">Spans 4 Columns</div>
+	</div>
+
+	<script type="text/javascript">
+		$('.container').shapeshift();
+	</script>
 </body>
 </html>
