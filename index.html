@@ -12,32 +12,80 @@
 		{
 		  position: relative;
 		  width: 100%;
+		  margin: 0 auto;
 		}
 
 		.container div 
 		{
-		  height: 150px;
-		  position: absolute;
-		  border: 1px solid black;
-		  width: 80px;
+			height: 140px;
+			position: absolute;
 		}
 
-		.container div[data-ss-colspan="2"] { width: 170px; }
-		.container div[data-ss-colspan="3"] { width: 260px; }
-		.container div[data-ss-colspan="4"] { width: 350px; }
+		.container div[data-ss-colspan="1"] { width: 60px; }
+		.container div[data-ss-colspan="2"] { width: 140px; }
+		.container div[data-ss-colspan="3"] { width: 220px; }
+		.container div[data-ss-colspan="4"] { width: 300px; }
+		.container div[data-ss-colspan="6"] { width: 460px; }
+
+		.container div[data-ss-rowspan="1"] { height: 60px; }
+		.container div[data-ss-rowspan="2"] { height: 140px; }
+		.container div[data-ss-rowspan="3"] { height: 220px; }
+		.container div[data-ss-rowspan="4"] { height: 300px; }
+		.container div[data-ss-rowspan="6"] { height: 460px; }
+
+		.small { background-color: red; }
+		.tall { background-color: green; }
+		.wide { background-color: blue; }
+		.large { background-color: yellow; }
 </style>
 </head>
 <body>
-	<div class="container">
-		
-		<div>Spans 1 Column</div>
-  <div data-ss-colspan="2">Spans 2 Columns</div>
-  <div data-ss-colspan="3">Spans 3 Columns</div>
-  <div data-ss-colspan="4">Spans 4 Columns</div>
+	<div class="container">	
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="tall">3 by 6</div>
+		<div class="tall">3 by 6</div>
+		<div class="wide">6 by 3</div>
+		<div class="wide">6 by 3</div>
+		<div class="large">6 by 6</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="tall">3 by 6</div>
+		<div class="tall">3 by 6</div>
+		<div class="wide">6 by 3</div>
+		<div class="wide">6 by 3</div>
+		<div class="large">6 by 6</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="tall">3 by 6</div>
+		<div class="tall">3 by 6</div>
+		<div class="wide">6 by 3</div>
+		<div class="wide">6 by 3</div>
+		<div class="large">6 by 6</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
+		<div class="small">3 by 3</div>
 	</div>
 
 	<script type="text/javascript">
-		$('.container').shapeshift();
+		$(".small").attr("data-ss-colspan", 3).attr("data-ss-rowspan", 3);
+		$(".tall").attr("data-ss-colspan", 3).attr("data-ss-rowspan", 6);
+		$(".wide").attr("data-ss-colspan", 6).attr("data-ss-rowspan", 3);
+		$(".large").attr("data-ss-colspan", 6).attr("data-ss-rowspan", 6);
+
+		$(".container").shapeshift(
+			{
+				gutterX: 20,
+				gutterY: 20
+			}
+		);
 	</script>
 </body>
 </html>
